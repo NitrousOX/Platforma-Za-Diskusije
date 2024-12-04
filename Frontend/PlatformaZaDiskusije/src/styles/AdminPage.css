@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(135deg, #f3eacb, #c6ab8f);
+    height: 100vh;
+  }
+  
+  .admin-header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #8d6e63;
+    color: #f8f3eb;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+  
+  .admin-header h1 {
+    margin: 0;
+    font-size: 2rem;
+  }
+  
+  .admin-container {
+    padding-top: 80px; /* Prevent overlap with header */
+  }
+  
+  .admin-main {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .admin-main h2 {
+    margin-bottom: 20px;
+    color: #8d6e63;
+  }
+  
+  .users-table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #f8f3eb;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .users-table th,
+  .users-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #d7ccc8;
+  }
+  
+  .users-table th {
+    background-color: #8d6e63;
+    color: #fff;
+  }
+  
+  .users-table tr:hover {
+    background-color: #e7d6c5;
+  }
+  
+  .users-table td {
+    color: #5f4339;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
