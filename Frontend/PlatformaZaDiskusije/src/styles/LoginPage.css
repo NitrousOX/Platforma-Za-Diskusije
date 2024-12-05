@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, #d6bfa4, #a5846a);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-header {
+  position: fixed; /* Ensures the header stays at the top */
+  top: 0;
+  left: 0;
+  width: 100%; /* Makes the header full width */
+  background-color: rgba(141, 110, 99, 0.9);
+  color: #f8f3eb;
+  text-align: center;
+  padding: 20px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Keeps the header above other elements */
+}
+
+.login-container {
+  margin-top: 80px; /* Adjusts to avoid overlap with the fixed header */
+}
+
+
+.login-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.login-box {
+  margin-top: 100px;
+  width: 400px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+  color: #5f4339;
+  font-weight: 600;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: left; /* Aligns labels and inputs properly */
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #8d6e63;
+  font-weight: 600;
+}
+
+.input-group input {
+  width: 100%; /* Ensures input fields take the full width of the container */
+  padding: 10px 15px; /* Balanced padding for better alignment */
+  border: 1px solid #d7ccc8;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-align: left; /* Aligns text and placeholder to the left */
+  transition: box-shadow 0.3s ease;
+  box-sizing: border-box; /* Includes padding in width calculations */
+}
+
+.input-group input:focus {
+  box-shadow: 0 0 10px rgba(141, 110, 99, 0.5);
+  outline: none;
+}
+
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background: #8d6e63;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.login-button:hover {
+  background: #755647;
+  transform: scale(1.05);
+}
+
+.register-link {
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+.register-link a {
+  color: #8d6e63;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+  color: #5f4339;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
