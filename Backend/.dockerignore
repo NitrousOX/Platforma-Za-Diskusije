@@ -1,0 +1,47 @@
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment and configuration files
+.env
+*.env
+
+# Log files
+*.log
+logs/
+
+# Virtual environments
+venv/
+.virtualenv/
+
+# Docker-specific files
+Dockerfile~
+.dockerignore
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git-related files
+.git/
+.gitignore
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Tests (optional if not needed in the container)
+tests/
+
+# Temporary files
+*.tmp
+*.bak
+*.orig
+*.~*
+
+# Node.js files (if using frontend assets, adjust as needed)
+node_modules/
