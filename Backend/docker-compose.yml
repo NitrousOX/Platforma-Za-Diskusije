@@ -9,10 +9,19 @@ services:
       - FLASK_ENV=development
     volumes:
       - .:/app
+    depends_on:
+      - mongodb  # Ensure MongoDB starts before the API container
 
-  # db:
-  #   image: postgres:13
-  #   environment:
-  #     POSTGRES_USER: user
-  #     POSTGRES_PASSWORD: password
-  #     POSTGRES_DB: api_db
+  mongodb:
+    image: mongo:8.0  # Use the latest stable MongoDB version
+    container_name: mongodb_container
+    ports:
+      - "27017:27017"  # Default MongoDB port
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root  # Set root username
+      MONGO_INITDB_ROOT_PASSWORD: password  # Set root password
+    volumes:
+      - mongo_data:/data/db  # Persist MongoDB data
+
+volumes:
+  mongo_data:
