@@ -1,5 +1,9 @@
 from flask import Blueprint, jsonify
 from pymongo import MongoClient
+# Import servisa iz Services foldera
+from app.Services.loginService import login
+from app.Services.registerService import register
+
 
 # Create a blueprint for your API
 api = Blueprint('api', __name__)
@@ -17,6 +21,12 @@ def hello_world():
     db = client.get_database('mydb')  # Replace 'mydb' with your database name
     return "Hello, World!"
 
-@api.route('/api/data', methods=['GET'])
+
+
+@api.route('/login', methods=['GET'])
 def get_data():
-    return jsonify({'message': 'Hello, world!', 'status': 'success'})
+    return login()
+
+@api.route('/api/register', methods=['GET'])
+def get_data():
+    return register()
