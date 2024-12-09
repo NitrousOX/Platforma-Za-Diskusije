@@ -17,7 +17,6 @@ def create_app():
         db = client["DRS_DB"]  # Get default database
         app.db = db
         print("Successfully connected to MongoDB!")
-        print(db)
         
     except Exception as e:
         print(f"Error connecting to MongoDB: {e}")
