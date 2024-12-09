@@ -14,9 +14,10 @@ def create_app():
         client = MongoClient(mongodb_uri, serverSelectionTimeoutMS=5000)  # Timeout set to 5 seconds
         # Perform a quick connection check
         client.admin.command('ping')  # This pings the MongoDB server
-        db = client.get_default_database()  # Get default database
+        db = client["DRS_DB"]  # Get default database
         app.db = db
         print("Successfully connected to MongoDB!")
+        print(db)
     except Exception as e:
         print(f"Error connecting to MongoDB: {e}")
         app.db = None  # Handle failure by setting db to None
