@@ -10,6 +10,11 @@ body {
   justify-content: center;
 }
 
+.create-account-link{
+  color: black;
+  cursor: pointer;
+}
+
 .login-header {
   position: fixed; /* Ensures the header stays at the top */
   top: 0;
