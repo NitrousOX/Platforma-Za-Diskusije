@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/LoginPage.css"
+import "../styles/LoginPage.css";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
@@ -9,20 +9,10 @@ const LoginPage = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-
-    // Dummy authentication logic
-    const user = {
-      username,
-      email: "user@example.com",
-      role: username === "admin" ? "admin" : "user",
-    };
-
-    // Redirect based on role
-    if (user.role === "admin") {
-      navigate("/admin", { state: { user } });
-    } else {
-      navigate("/user", { state: { user } });
-    }
+    // Dummy login logic
+    const user = { username, role: username === "admin" ? "admin" : "user" };
+    if (user.role === "admin") navigate("/admin");
+    else navigate("/user");
   };
 
   return (
@@ -54,6 +44,17 @@ const LoginPage = () => {
             Login
           </button>
         </form>
+        <div className="register-link">
+          <p>
+            Don’t have an account?{" "}
+            <span
+              className="create-account-link"
+              onClick={() => navigate("/register")}
+            >
+              Create Account
+            </span>
+          </p>
+        </div>
       </div>
     </div>
   );

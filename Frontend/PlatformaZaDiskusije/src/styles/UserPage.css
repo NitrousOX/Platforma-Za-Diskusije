@@ -3,7 +3,6 @@
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(to bottom, #d7ccc8, #efebe9);
     font-family: "Arial", sans-serif;
     padding-top: 60px; /* Adjust for header spacing */
   }
