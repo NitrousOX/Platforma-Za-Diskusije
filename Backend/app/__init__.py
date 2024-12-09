@@ -18,6 +18,7 @@ def create_app():
         app.db = db
         print("Successfully connected to MongoDB!")
         print(db)
+        
     except Exception as e:
         print(f"Error connecting to MongoDB: {e}")
         app.db = None  # Handle failure by setting db to None
