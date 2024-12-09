@@ -1,237 +1,237 @@
 from datetime import datetime
 
 class Administrator:
-    def __init__(self, ime, prezime, adresa, grad, drzava, broj_telefona, email, lozinka, korisnicko_ime):
-        self.ime = ime
-        self.prezime = prezime
-        self.adresa = adresa
-        self.grad = grad
-        self.drzava = drzava
-        self.broj_telefona = broj_telefona
+    def __init__(self, name, surname, address, city, country, phone, email, password, username):
+        self.name = name
+        self.surname = surname
+        self.address = address
+        self.city = city
+        self.country = country
+        self.phone = phone
         self.email = email
-        self.lozinka = lozinka
-        self.korisnicko_ime = korisnicko_ime
+        self.password = password
+        self.username = username
 
-    def get_ime(self):
-        return self.ime
-    def set_ime(self, ime):
-        self.ime = ime
+    def get_name(self):
+        return self.name
+    def set_name(self, name):
+        self.name = name
     
-    def get_prezime(self):
-        return self.prezime
-    def set_prezime(self, prezime):
-        self.prezime = prezime
+    def get_surname(self):
+        return self.surname
+    def set_surname(self, surname):
+        self.surname = surname
     
-    def get_adresa(self):
-        return self.adresa
-    def set_adresa(self, adresa):
-        self.adresa = adresa
+    def get_address(self):
+        return self.address
+    def set_address(self, address):
+        self.address = address
     
-    def get_grad(self):
-        return self.grad
-    def set_grad(self, grad):
-        self.grad = grad
+    def get_city(self):
+        return self.city
+    def set_city(self, city):
+        self.city = city
 
-    def get_drzava(self):
-        return self.drzava
-    def set_drzava(self, drzava):
-        self.drzava = drzava
+    def get_country(self):
+        return self.country
+    def set_country(self, country):
+        self.country = country
     
-    def get_broj_telefona(self):
-        return self.broj_telefona
-    def set_broj_telefona(self, broj_telefona):
-        self.broj_telefona = broj_telefona
+    def get_phone(self):
+        return self.phone
+    def set_phone(self, phone):
+        self.phone = phone
     
     def get_email(self):
         return self.email
     def set_email(self, email):
         self.email = email
     
-    def get_lozinka(self):
-        return self.lozinka
-    def set_lozinka(self, lozinka):
-        self.lozinka = lozinka
+    def get_password(self):
+        return self.password
+    def set_password(self, password):
+        self.password = password
     
-    def get_korisnicko_ime(self):
-        return self.korisnicko_ime
-    def set_korisnicko_ime(self, korisnicko_ime):
-        self.korisnicko_ime = korisnicko_ime
+    def get_username(self):
+        return self.username
+    def set_username(self, username):
+        self.username = username
     
-class Korisnik:
-    def __init__(self, ime, prezime, adresa, grad, drzava, broj_telefona, email, lozinka, korisnicko_ime):
-        self.ime = ime
-        self.prezime = prezime
-        self.adresa = adresa
-        self.grad = grad
-        self.drzava = drzava
-        self.broj_telefona = broj_telefona
+class User:
+    def __init__(self, name, surname, address, city, country, phone, email, password, username):
+        self.name = name
+        self.surname = surname
+        self.address = address
+        self.city = city
+        self.country = country
+        self.phone = phone
         self.email = email
-        self.lozinka = lozinka
-        self.korisnicko_ime = korisnicko_ime
+        self.password = password
+        self.username = username
 
-    def get_ime(self):
-        return self.ime
-    def set_ime(self, ime):
-        self.ime = ime
+    def get_name(self):
+        return self.name
+    def set_name(self, name):
+        self.name = name
     
-    def get_prezime(self):
-        return self.prezime
-    def set_prezime(self, prezime):
-        self.prezime = prezime
+    def get_surname(self):
+        return self.surname
+    def set_surname(self, surname):
+        self.surname = surname
     
-    def get_adresa(self):
-        return self.adresa
-    def set_adresa(self, adresa):
-        self.adresa = adresa
+    def get_address(self):
+        return self.address
+    def set_address(self, address):
+        self.address = address
     
-    def get_grad(self):
-        return self.grad
-    def set_grad(self, grad):
-        self.grad = grad
+    def get_city(self):
+        return self.city
+    def set_city(self, city):
+        self.city = city
 
-    def get_drzava(self):
-        return self.drzava
-    def set_drzava(self, drzava):
-        self.drzava = drzava
+    def get_country(self):
+        return self.country
+    def set_country(self, country):
+        self.country = country
     
-    def get_broj_telefona(self):
-        return self.broj_telefona
-    def set_broj_telefona(self, broj_telefona):
-        self.broj_telefona = broj_telefona
+    def get_phone(self):
+        return self.phone
+    def set_phone(self, phone):
+        self.phone = phone
     
     def get_email(self):
         return self.email
     def set_email(self, email):
         self.email = email
     
-    def get_lozinka(self):
-        return self.lozinka
-    def set_lozinka(self, lozinka):
-        self.lozinka = lozinka
+    def get_password(self):
+        return self.password
+    def set_password(self, password):
+        self.password = password
     
-    def get_korisnicko_ime(self):
-        return self.korisnicko_ime
-    def set_korisnicko_ime(self, korisnicko_ime):
-        self.korisnicko_ime = korisnicko_ime
+    def get_username(self):
+        return self.username
+    def set_username(self, username):
+        self.username = username
     
-class Diskusija:
-    def __init__(self, naziv, tekst, autor, tema):
-        self.naziv = naziv
-        self.tekst = tekst
-        self.autor = autor
-        self.tema = tema
-        self.datum_kreiranja = datetime.now()
-        self.lajkovi = 0
-        self.dislajkovi = 0
-        self.komentari = []  # Lista za skladistenje komentara
+class Discussion:
+    def __init__(self, title, text, author, topic):
+        self.title = title
+        self.text = text
+        self.author = author
+        self.topic = topic
+        self.date_created = datetime.now()
+        self.likes = 0
+        self.dislikes = 0
+        self.comments = []  # Lista za skladistenje komentara
 
-        def get_naziv(self):
-            return self.naziv
-        def set_naziv(self, naziv):
-            self.naziv = naziv
+        def get_title(self):
+            return self.title
+        def set_title(self, title):
+            self.title = title
 
-        def get_tekst(self):
-            return self.tekst
-        def set_tekst(self, tekst):
-            self.tekst = tekst
+        def get_text(self):
+            return self.text
+        def set_text(self, text):
+            self.text = text
 
-        def get_autor(self):
-            return self.autor
-        def set_autor(self, autor):
-            self.autor = autor
+        def get_author(self):
+            return self.author
+        def set_author(self, author):
+            self.author = author
 
-        def get_tema(self):
-            return self.tema
-        def set_tema(self, tema):
-            self.tema = tema
+        def get_topic(self):
+            return self.topic
+        def set_topic(self, topic):
+            self.topic = topic
 
-        def get_datum_kreiranja(self):
-            return self.datum_kreiranja
-        def set_datum_kreiranja(self, datum_kreiranja):
-            self.datum_kreiranja = datum_kreiranja
+        def get_date_created(self):
+            return self.date_created
+        def set_date_created(self, date_created):
+            self.date_created = date_created
 
-        def get_lajkovi(self):
-            return self.lajkovi
-        def set_lajkovi(self, lajkovi):
-            self.lajkovi = lajkovi
+        def get_likes(self):
+            return self.likes
+        def set_likes(self, likes):
+            self.likes = likes
 
-        def get_dislajkovi(self):
-            return self.dislajkovi
-        def set_dislajkovi(self, dislajkovi):
-            self.dislajkovi = dislajkovi
+        def get_dislikes(self):
+            return self.dislikes
+        def set_dislikes(self, dislikes):
+            self.dislikes = dislikes
 
-        def get_komentari(self):
-            return self.komentari
-        def set_komentari(self, komentari):
-            self.komentari = komentari
+        def get_comments(self):
+            return self.comments
+        def set_comments(self, comments):
+            self.comments = comments
             
-class Komentar:
-    def __init__(self, tekst, autor, diskusija):
-        self.tekst = tekst
-        self.autor = autor
-        self.diskusija = diskusija
-        self.datum_kreiranja = datetime.now()
+class Comment:
+    def __init__(self, text, author, discussion):
+        self.text = text
+        self.author = author
+        self.discussion = discussion
+        self.date_created = datetime.now()
 
-    def get_tekst(self):
-        return self.tekst
-    def set_tekst(self, tekst):
-        self.tekst = tekst
+    def get_text(self):
+        return self.text
+    def set_text(self, text):
+        self.text = text
 
-    def get_autor(self):
-        return self.autor
-    def set_autor(self, autor):
-        self.autor = autor
+    def get_author(self):
+        return self.author
+    def set_author(self, author):
+        self.author = author
 
-    def get_diskusija(self):
-        return self.diskusija
-    def set_diskusija(self, diskusija):
-        self.diskusija = diskusija
+    def get_discussion(self):
+        return self.discussion
+    def set_discussion(self, discussion):
+        self.discussion = discussion
 
-    def get_datum_kreiranja(self):
-        return self.datum_kreiranja
-    def set_datum_kreiranja(self, datum):
-        self.datum_kreiranja = datum
-
-    
+    def get_date_created(self):
+        return self.date_created
+    def set_date_created(self, date):
+        self.date_created = date
 
     
-class Tema:
-    def __init__(self, naziv, opis):
-        self.naziv = naziv
-        self.opis = opis
 
-    def get_naziv(self):
-        return self.naziv
-    def set_naziv(self, naziv):
-        self.naziv = naziv
+    
+class Topic:
+    def __init__(self, title, description):
+        self.title = title
+        self.description = description
 
-    def get_opis(self):
+    def get_title(self):
+        return self.title
+    def set_title(self, title):
+        self.title = title
+
+    def get_description(self):
         return self.opis
-    def set_opis(self, opis):
-        self.opis = opis
+    def set_description(self, description):
+        self.description = description
         
 
 
-class Notifikacija:
-    def __init__(self, primalac, tekst):
-        self.primalac = primalac    #ID ili korisnicko ime primaoca
-        self.tekst = tekst
-        self.datum = datetime.now()
+class Notification:
+    def __init__(self, receiver, text):
+        self.receiver = receiver    #ID ili korisnicko name primaoca
+        self.text = text
+        self.date = datetime.now()
 
-    def get_primalac(self):
-        return self.primalac
-    def set_primalac(self, primalac):
-        self.primalac = primalac
+    def get_receiver(self):
+        return self.receiver
+    def set_receiver(self, receiver):
+        self.receiver = receiver
 
-    def get_tekst(self):
-        return self.tekst
-    def set_tekst(self, tekst):
-        self.tekst = tekst
+    def get_text(self):
+        return self.text
+    def set_text(self, text):
+        self.text = text
     
-    def get_datum(self):
-        return self.datum
-    def set_datum(self, datum):
-        self.datum = datum
+    def get_date(self):
+        return self.date
+    def set_date(self, date):
+        self.date = date
     
 
 
