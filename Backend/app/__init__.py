@@ -14,6 +14,7 @@ def create_app():
 
     # Connect to the database
     load_dotenv()
+    print(f"MongoDB URI from environment: {os.getenv('DATABASE_URL')}")
     mongodb_uri = os.getenv("DATABASE_URL")
     try:
         # Establish MongoDB connection
