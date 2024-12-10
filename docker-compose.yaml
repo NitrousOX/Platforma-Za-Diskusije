@@ -1,0 +1,27 @@
+networks:
+  app-network:
+    driver: bridge
+
+services:
+  backend:
+    build: ./Backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./Backend:/app 
+    networks:
+      - app-network
+    environment:
+      - FLASK_ENV:development
+      - DATABASE_URL:${DATABASE_URL}
+    env_file:
+      - ./Backend/.env
+
+  frontend:
+    build: ./Frontend
+    ports:
+      - "8080:80"
+    networks:
+      - app-network
+    depends_on:
+      - backend
