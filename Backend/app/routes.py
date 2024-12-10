@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request, current_app
 from pymongo import MongoClient
 # Import servisa iz Services foldera
-from app.Services.loginService import login, logout
+from app.Services.loginService import login
 from app.Services.registerService import register, unregister
 
 

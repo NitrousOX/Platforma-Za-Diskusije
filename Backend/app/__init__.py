@@ -1,6 +1,5 @@
-
-from flask_sockets import Sockets
 from flask import Flask
+from flask_sockets import Sockets
 from pymongo import MongoClient
 from dotenv import load_dotenv
 import os

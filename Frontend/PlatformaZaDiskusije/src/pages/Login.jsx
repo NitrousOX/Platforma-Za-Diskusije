@@ -10,11 +10,11 @@ const LoginPage = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
+  
     try {
       // Connect to the WebSocket server
-      const socket = new WebSocket("ws://localhost:6789");
-
+      const socket = new WebSocket("ws://localhost:6789/ws");
+  
       // Send login request when WebSocket is open
       socket.onopen = () => {
         const loginData = {
@@ -24,23 +24,29 @@ const LoginPage = () => {
         };
         socket.send(JSON.stringify(loginData));
       };
-
+  
       // Handle server response
       socket.onmessage = (event) => {
         const response = JSON.parse(event.data);
-
+  
         if (response.status === "success") {
           // Navigate based on user role
-          const role = username === "admin" ? "admin" : "user";
+          const role = response.role;
           navigate(`/${role}`);
         } else {
           setError(response.message);
+  
+          // If the credentials are wrong, clear the fields and refresh the form
+          if (response.message === "Invalid password" || response.message === "No account found") {
+            setUsername("");  // Clear username field
+            setPassword("");  // Clear password field
+          }
         }
-
+  
         // Close WebSocket after receiving response
         socket.close();
       };
-
+  
       // Handle WebSocket errors
       socket.onerror = (error) => {
         console.error("WebSocket Error:", error);
@@ -51,6 +57,8 @@ const LoginPage = () => {
       setError("Unexpected error occurred.");
     }
   };
+  
+
 
   return (
     <div className="login-container">
