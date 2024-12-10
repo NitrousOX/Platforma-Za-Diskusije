@@ -14,5 +14,7 @@ COPY . .
 # Expose the API port
 EXPOSE 5000
 
-# Run the application
-CMD ["python", "run.py"]
+
+# Run the application using Gunicorn with WebSocket support
+CMD ["gunicorn", "-k", "eventlet", "-b", "0.0.0.0:5000", "run:app"]
+

@@ -5,14 +5,51 @@ import "../styles/LoginPage.css";
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Dummy login logic
-    const user = { username, role: username === "admin" ? "admin" : "user" };
-    if (user.role === "admin") navigate("/admin");
-    else navigate("/user");
+
+    try {
+      // Connect to the WebSocket server
+      const socket = new WebSocket("ws://localhost:6789");
+
+      // Send login request when WebSocket is open
+      socket.onopen = () => {
+        const loginData = {
+          action: "login",
+          username,
+          password,
+        };
+        socket.send(JSON.stringify(loginData));
+      };
+
+      // Handle server response
+      socket.onmessage = (event) => {
+        const response = JSON.parse(event.data);
+
+        if (response.status === "success") {
+          // Navigate based on user role
+          const role = username === "admin" ? "admin" : "user";
+          navigate(`/${role}`);
+        } else {
+          setError(response.message);
+        }
+
+        // Close WebSocket after receiving response
+        socket.close();
+      };
+
+      // Handle WebSocket errors
+      socket.onerror = (error) => {
+        console.error("WebSocket Error:", error);
+        setError("Connection error. Please try again.");
+      };
+    } catch (err) {
+      console.error("Error:", err);
+      setError("Unexpected error occurred.");
+    }
   };
 
   return (
@@ -40,6 +77,7 @@ const LoginPage = () => {
               placeholder="Enter your password"
             />
           </div>
+          {error && <p className="error-message">{error}</p>}
           <button type="submit" className="login-button">
             Login
           </button>
