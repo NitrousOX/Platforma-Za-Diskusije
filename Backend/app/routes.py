@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request, current_app, Response
 from bson.json_util import dumps
 
 # Import servisa iz Services foldera
-from app.Services.loginService import login, logout
+from app.Services.loginService import login
 from app.Services.registerService import register, unregister
 
 

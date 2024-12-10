@@ -1,25 +1,24 @@
-
 # Simulirana baza korisnika za prijavu
 USERS = {
-    "admin": "admin", # username: password
-    "korisnik1": "korisnik1"
+    "admin": {"password": "admin", "admin": True},  # admin has admin role
+    "korisnik1": {"password": "korisnik1", "admin": False}  # korisnik1 does not have admin role
 }
-
 
 def login(username, password):
     """
-    Simulacija login logike.
-    Proverava da li korisnicko ime i lozinka odgovaraju nekom korisniku.
+    Simulates the login logic.
+    Checks if the username and password match a user in the simulated database.
+    Also checks the user's role.
     """
-    if username in USERS and USERS[username] == password:
-        return {"status": "success", "message": f"Welcome, {username}!"}
+    if username in USERS:
+        if USERS[username]["password"] == password:
+            is_admin = USERS[username]["admin"]
+            return {
+                "status": "success",
+                "message": f"Welcome, {username}!",
+                "role": "admin" if is_admin else "user"
+            }
+        else:
+            return {"status": "error", "message": "Invalid password"}  # Correct message for wrong password
     else:
-        return {"status": "error", "message": "Invalid username or password"}
-
-    return {"message": "Login successful"}
-
-def logout():
-    """
-    Simulacija odjavljivanja
-    """
-    return {"status": "success", "message": "Logout successful"}
+        return {"status": "error", "message": "No account found"}  # Correct message for non-existent user

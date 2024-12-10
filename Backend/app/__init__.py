@@ -1,6 +1,6 @@
 
-#from flask_sockets import Sockets
 from flask import Flask
+from flask_sockets import Sockets
 from pymongo import MongoClient
 from pymongo.server_api import ServerApi
 from app.Services.mongoDBService import MongoDBService
