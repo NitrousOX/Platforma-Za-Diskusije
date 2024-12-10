@@ -1,15 +1,16 @@
 
-from flask_sockets import Sockets
+#from flask_sockets import Sockets
 from flask import Flask
 from pymongo import MongoClient
 from pymongo.server_api import ServerApi
+from app.Services.mongoDBService import MongoDBService
 from dotenv import load_dotenv
 import os
 
 def create_app():
     app = Flask(__name__)
 
-    sockets = Sockets(app)  # Attach Flask-Sockets
+    #sockets = Sockets(app)  # Attach Flask-Sockets
 
     # Connect to the database
     load_dotenv()
@@ -22,6 +23,8 @@ def create_app():
         db = client["DRS"]  # Get default database
         app.db = db
         print("Successfully connected to MongoDB!")
+        app.mongo_service = MongoDBService(db)
+
     except Exception as e:
         print(f"Error connecting to MongoDB: {e}")
         app.db = None
@@ -31,8 +34,8 @@ def create_app():
     app.register_blueprint(api)
 
     # Register WebSocket routes
-    from .websocket_routes import sockets, ws_blueprint
-    sockets.register_blueprint(ws_blueprint)
+    # from .websocket_routes import sockets, ws_blueprint
+    # sockets.register_blueprint(ws_blueprint)
 
     return app
 

@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request, current_app, Response
 from bson.json_util import dumps
-from pymongo import MongoClient
+
 # Import servisa iz Services foldera
 from app.Services.loginService import login, logout
 from app.Services.registerService import register, unregister
@@ -55,9 +55,7 @@ def test_unregister():
 
 @api.route('/api/getAdmin',methods = ['GET'])
 def getUser():
-    if current_app.db is not None:
-        # Example: Query the database
-        admins_cursor = current_app.db.admins.find()
-        admins_json = dumps(admins_cursor)
-        return Response(admins_json, mimetype='application/json'), 200
+    if current_app.mongo_service is not None:
+        admins_json = current_app.mongo_service.get_all("admins")
+        return Response(dumps(admins_json), mimetype='application/json'), 200
     return jsonify({"error": "No database connection or user not found"}), 500
