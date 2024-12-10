@@ -1,64 +1,7 @@
 from datetime import datetime
-
-class Administrator:
-    def __init__(self, name, surname, address, city, country, phone, email, password, username):
-        self.name = name
-        self.surname = surname
-        self.address = address
-        self.city = city
-        self.country = country
-        self.phone = phone
-        self.email = email
-        self.password = password
-        self.username = username
-
-    def get_name(self):
-        return self.name
-    def set_name(self, name):
-        self.name = name
-    
-    def get_surname(self):
-        return self.surname
-    def set_surname(self, surname):
-        self.surname = surname
-    
-    def get_address(self):
-        return self.address
-    def set_address(self, address):
-        self.address = address
-    
-    def get_city(self):
-        return self.city
-    def set_city(self, city):
-        self.city = city
-
-    def get_country(self):
-        return self.country
-    def set_country(self, country):
-        self.country = country
-    
-    def get_phone(self):
-        return self.phone
-    def set_phone(self, phone):
-        self.phone = phone
-    
-    def get_email(self):
-        return self.email
-    def set_email(self, email):
-        self.email = email
-    
-    def get_password(self):
-        return self.password
-    def set_password(self, password):
-        self.password = password
-    
-    def get_username(self):
-        return self.username
-    def set_username(self, username):
-        self.username = username
     
 class User:
-    def __init__(self, name, surname, address, city, country, phone, email, password, username):
+    def __init__(self, name, surname, address, city, country, phone, email, password, username, isAdmin):
         self.name = name
         self.surname = surname
         self.address = address
@@ -68,6 +11,7 @@ class User:
         self.email = email
         self.password = password
         self.username = username
+        self.isAdmin = False
 
     def get_name(self):
         return self.name
@@ -113,6 +57,11 @@ class User:
         return self.username
     def set_username(self, username):
         self.username = username
+
+    def get_isAdmin(self):
+        return self.isAdmin
+    def set_isAdmin(self, isHeReally):
+        self.isAdmin = isHeReally
     
 class Discussion:
     def __init__(self, title, text, author, topic):
