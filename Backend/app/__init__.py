@@ -1,3 +1,4 @@
+
 from flask_sockets import Sockets
 from flask import Flask
 from pymongo import MongoClient
@@ -6,6 +7,7 @@ import os
 
 def create_app():
     app = Flask(__name__)
+
     sockets = Sockets(app)  # Attach Flask-Sockets
 
     # Connect to the database
@@ -30,3 +32,4 @@ def create_app():
     sockets.register_blueprint(ws_blueprint)
 
     return app
+
