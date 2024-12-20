@@ -18,4 +18,4 @@ ENV FLASK_ENV=development
 EXPOSE 5000
 
 # Run the Flask application using the built-in server
-CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5000", "--debug"]
